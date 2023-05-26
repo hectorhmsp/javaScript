@@ -40,6 +40,11 @@ function autoPlay() {
   }
 }
 
+document.querySelector('.js-auto-play')
+  .addEventListener('click', () => {
+    autoPlay();  
+  });
+
 document.querySelector('.js-rock-button')
   .addEventListener('click', () => {
     playGame('rock');
