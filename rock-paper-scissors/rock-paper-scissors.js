@@ -27,12 +27,16 @@ function autoPlay() {
     intervalId = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
+      document.querySelector('.js-auto-play')
+        .innerText = 'Stop Playing';
     }, 1000);
     isAutoPlaying = true;
 
   } else {
     clearInterval(intervalId);
     isAutoPlaying = false;
+    document.querySelector('.js-auto-play')
+      .innerText = 'Auto Play');
   }
 }
 
