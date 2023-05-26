@@ -36,7 +36,7 @@ function autoPlay() {
     clearInterval(intervalId);
     isAutoPlaying = false;
     document.querySelector('.js-auto-play')
-      .innerText = 'Auto Play');
+      .innerText = 'Auto Play';
   }
 }
 
