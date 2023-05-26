@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+      background-color: rgb(195, 177, 225);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .calc {
+      background-color: black;
+      border: solid;
+      border-width: 2px;
+      border-color: black;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      grid-template-columns: repeat(4, 60px);
+      grid-template-rows: repeat(5, 60px);
+      grid-row-gap: 2px;
+      grid-column-gap: 2px;
+    }
+
+    .button, .right, .equal {
+      width: 60px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .button {
+      height: 60px;
+      background-color: dimgray;
+    }
+
+    .equal {
+      height: 122px;
+      background-color: rgb(177,91,212);
+    }
+
+    .right {
+      background-color: rgb(177, 91, 212);
+      height: 60px;
+    }
+
+    .values {
+      border: solid;
+      border-width: 2px;
+      border-color: black;
+      color: white;
+      font-size: 35px;
+      margin-bottom: 2px;
+      background-color: rgb(66, 70, 74);
+      width: 246px;
+      height: 60px;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="js-values values">0</div>
+
+    <div class="calc">
+
+      <button class="button" onclick="clearDisplay()">AC</button>
+      <button class="button" onclick="appendToDisplay('/')">&#247;</button>
+
+      <button class="button" onclick="appendToDisplay('*')">&#215;</button>
+
+      <button class="right" onclick="removeLastItem()">&#9003;</button>
+
+      <button class="button" onclick="appendToDisplay('7')" value="7">7</button>
+
+      <button class="button" onclick="appendToDisplay('8')" value="8">8</button>
+
+      <button class="button" onclick="appendToDisplay('9')" value="9">9</button>
+
+      <button class="right" onclick="appendToDisplay('-')">-</button>
+
+      <button class="button" onclick="appendToDisplay('4')" value="4">4</button>
+
+      <button class="button" onclick="appendToDisplay('5')" value="5">5</button>
+
+      <button class="button" onclick="appendToDisplay('6')" value="6">6</button>
+
+      <button class="right" onclick="appendToDisplay('+')">+</button>
+
+      <button class="button" onclick="appendToDisplay('1')" value="1">1</button>
+
+      <button class="button" onclick="appendToDisplay('2')" value="2">2</button>
+
+      <button class="button" onclick="appendToDisplay('3')" value="3">3</button>
+
+      <button class="equal" onclick="calculateItems()">=</button>
+
+      <button class="button" onclick="appendToDisplay('.')">.</button>
+
+      <button class="button" onclick="appendToDisplay('0')" value="0">0</button>
+
+      <button class="button" onclick="appendToDisplay('%')">%</button>
+
+    </div>
+  </div>
+
+  <script>
+    let display = '';
+
+    function appendToDisplay(value) {
+      display += value;
+      document.querySelector('.js-values').innerHTML = display;
+    }
+
+    function removeLastItem() {
+      display = display.slice(0, -1);
+      document.querySelector('.js-values').innerHTML = display;
+    }
+
+    function clearDisplay() {
+      display = '';
+      document.querySelector('.js-values').innerHTML = display;
+    }
+
+    function calculateItems() {
+      try {
+        const result = eval(display);
+        display = String(result);
+        document.querySelector('.js-values').innerHTML = display;
+      } catch (error) {
+        display = '';
+        document.querySelector('.js-values').innerHTML = 'Invalid expression!';
+      }
+    }
+
+    // Event handler for the plus (+) button
+    function handlePlus() {
+      appendToDisplay('+');
+    }
+
+    // Event handler for the minus (-) button
+    function handleMinus() {
+      appendToDisplay('-');
+    }
+
+    // Add event listener for keydown event
+    document.addEventListener('keydown', function(event) {
+	    // Get the pressed key
+	    var key = event.key;
+
+	    // Check if the key corresponds to a number or operator
+      if (/[0-9]|\/|\*|\+|\-/.test(key)) {
+        event.preventDefault(); // Prevent the default behavior
+
+        if (key === '+') {
+          handlePlus();
+        } else if (key === '-') {
+          handleMinus();
+        } else {
+          var buttonContent = key;
+
+          // Adjust the button content for multiplication and division
+          if (key === '*') {
+            buttonContent = '\u00D7'; // Unicode character for multiplication
+          } else if (key === '/') {
+            buttonContent = '\u00F7'; // Unicode character for division
+          }
+
+          // Find the corresponding button
+          var buttons = document.querySelectorAll('.button');
+          for (var i = 0; i < buttons.length; i++) {
+            if (buttons[i].textContent === buttonContent) {
+              // Trigger a click event on the button
+              buttons[i].click();
+              break;
+            }
+          }
+        }
+      } else if (key === 'Enter') {
+        event.preventDefault(); // Prevent the default behavior
+        calculateItems();
+        
+      } else if (key === 'Backspace') {
+    			event.preventDefault(); // Prevent the default behavior
+    			removeLastItem();
+  		}
+    });
+  </script>
+</body>
+</html>
+		});
+  </script>
+</body>
+</html>
