@@ -1,0 +1,147 @@
+body {
+  background-color: rgb(210,209,209);
+}
+
+.container {
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 450px;
+  position: absolute;
+  top: 200px;
+  left: 575px;
+}
+
+.calc {
+  background-color: rgba(68,68,68,255);
+  
+  border: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: black;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  padding: 5px;
+
+  grid-template-columns: repeat(4, 60px);
+  grid-template-rows: repeat(5, 60px);
+  grid-row-gap: 3px;
+  grid-column-gap: 3px;
+}
+
+.button, .right, .equal {
+  width: 60px;
+
+  cursor: pointer;
+
+  color: rgba(202,202,202,255);
+
+  border: none;
+  border-radius: 50px;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button {
+  height: 60px;
+
+  background-color: dimgray;
+
+  transition: opacity 0.15s;
+}
+
+.equal {
+  height: 122px;
+
+  color: white;
+  background-color: rgba(255,100,108,255);
+
+  border-radius: 10px;
+
+  transition: opacity 0.15s;
+}
+
+.right {
+  background-color: rgba(255,100,108,255);
+  color: white;
+
+  height: 60px;
+
+  border-radius: 10px;
+
+  transition: opacity 0.15s;
+}
+
+.values {
+  width: 246px;
+  height: 60px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-bottom: 2px;
+  padding: 5px;
+
+  border-radius: 6px;
+  border: solid;
+  border-width: 2px;
+  border-color: black;
+
+  color: rgba(254,101,109,255);
+  background-color: rgba(47,47,47,255);
+
+  font-size: 35px;
+}
+
+.button:hover {
+	background-color: rgb(126, 126, 126);
+}
+
+.right:hover, 
+.equal:hover {
+	background-color: rgb(255, 128, 134);
+}
+
+.button:active,
+.right:active,
+.equal:active {
+	opacity: 0.8;
+}
+
+.inline-block {
+	width: auto;
+	margin: 0;
+	display: inline-block;
+}
+
+.text-01,
+.text-02,
+.text-03 {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.text-01 {
+	font-size: 45px;
+	display: inline-block;
+	margin-bottom: 30px;
+	width: fit-content;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.text-02 {
+	font-size: 30px;
+	width: 400px; 
+	margin-bottom: 200px;
+	word-wrap: normal;
+	margin-left: 20px;
+}
+
+.text-03 {
+	font-size: 30px;
+	width: 400px;
+	word-wrap: normal;
+	margin-left: 20px;
+}
