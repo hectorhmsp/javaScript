@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="calculator.css">
+
+</head>
+
+<body>
+	<div class="inline-block">
+		<div class="text-01">Hello!</div>
+		<div class="text-02">This is my first project of a basic calculator using HTML, CSS and JavaScript. For now, it can only do the four basic operations.</div>
+		<div class="text-03">Quite simple, I know...</div>
+	</div>
+
+
+  <div class="container">
+    <div class="js-values values">0</div>
+
+    <div class="calc">
+
+      <button class="button" onclick="clearDisplay()">AC</button>
+      <button class="button" onclick="appendToDisplay('/')">&#247;</button>
+
+      <button class="button" onclick="appendToDisplay('*')">&#215;</button>
+
+      <button class="right" onclick="removeLastItem()">&#9003;</button>
+
+      <button class="button" onclick="appendToDisplay('7')" value="7">7</button>
+
+      <button class="button" onclick="appendToDisplay('8')" value="8">8</button>
+
+      <button class="button" onclick="appendToDisplay('9')" value="9">9</button>
+
+      <button class="right" onclick="appendToDisplay('-')">-</button>
+
+      <button class="button" onclick="appendToDisplay('4')" value="4">4</button>
+
+      <button class="button" onclick="appendToDisplay('5')" value="5">5</button>
+
+      <button class="button" onclick="appendToDisplay('6')" value="6">6</button>
+
+      <button class="right" onclick="appendToDisplay('+')">+</button>
+
+      <button class="button" onclick="appendToDisplay('1')" value="1">1</button>
+
+      <button class="button" onclick="appendToDisplay('2')" value="2">2</button>
+
+      <button class="button" onclick="appendToDisplay('3')" value="3">3</button>
+
+      <button class="equal" onclick="calculateItems()">=</button>
+
+      <button class="button" onclick="appendToDisplay('.')">.</button>
+
+      <button class="button" onclick="appendToDisplay('0')" value="0">0</button>
+
+      <button class="button" onclick="appendToDisplay('%')">%</button>
+
+    </div>
+  </div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
